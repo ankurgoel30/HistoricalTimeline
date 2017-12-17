@@ -4,6 +4,10 @@ import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Model class for storing Events 
+ *
+ */
 @XmlRootElement
 public class Event implements Comparable<Event> {
 	Integer id;

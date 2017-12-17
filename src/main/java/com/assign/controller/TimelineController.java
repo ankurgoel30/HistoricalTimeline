@@ -22,7 +22,10 @@ import com.assign.model.Event;
 import com.assign.service.TimelineService;
 
 
-
+/**
+ * Timeline controller for handling operations related to timeline 
+ *
+ */
 @Controller
 public class TimelineController {
 	
@@ -36,24 +39,50 @@ public class TimelineController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
 	
+	/**
+	 * Renders page to add new event
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/showAddEvent", method = RequestMethod.GET)
 	public String showAddEventPage(Model model) {
 		model.addAttribute("event",new Event());
 		return "event";
 	}
 	
+	/**
+	 * Adds a event and reders page to list all events
+	 * @param model
+	 * @param event
+	 * @param result
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/add-event", method = RequestMethod.POST)
 	public String addEvent(ModelMap model, Event event, BindingResult result)  throws Exception {
 		timelineService.addEvent(event);
 		return "redirect:/list-events";
 	}
 	
+	/**
+	 * Renders page with list of all events
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/list-events", method = RequestMethod.GET)
 	public String showAllEvents(ModelMap model)  throws Exception {
 		model.put("events", timelineService.getTimeline().getEvents());
 		return "list-events";
 	}
 	
+	/**
+	 * Renders timeline page with all events in 
+	 * chronological order
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "/viewTimeline", method = RequestMethod.GET)
 	public String showTimelineView(ModelMap model)  throws Exception {
 		List<Event> events = timelineService.getTimeline().getEvents();

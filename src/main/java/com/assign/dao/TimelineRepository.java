@@ -14,6 +14,11 @@ import org.springframework.stereotype.Repository;
 import com.assign.model.Event;
 import com.assign.model.Timeline;
 
+/**
+ * Data access object for storing and retrieving timeline 
+ * from xml file 
+ *
+ */
 @Repository
 public class TimelineRepository {
 	String xmlFileName = "timeline.xml";
