@@ -1,7 +1,11 @@
 package com.assign.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -41,7 +45,27 @@ public class TimelineController {
 	@RequestMapping(value = "/add-event", method = RequestMethod.POST)
 	public String addEvent(ModelMap model, Event event, BindingResult result)  throws Exception {
 		timelineService.addEvent(event);
-		return "redirect:/";
+		return "redirect:/list-events";
+	}
+	
+	@RequestMapping(value = "/list-events", method = RequestMethod.GET)
+	public String showAllEvents(ModelMap model)  throws Exception {
+		model.put("events", timelineService.getTimeline().getEvents());
+		return "list-events";
+	}
+	
+	@RequestMapping(value = "/viewTimeline", method = RequestMethod.GET)
+	public String showTimelineView(ModelMap model)  throws Exception {
+		List<Event> events = timelineService.getTimeline().getEvents();
+		if(events==null) {
+			events = new ArrayList<Event>();
+		}
+		events = events.stream().filter(e -> e.getDate()!=null).collect(Collectors.toList());
+		
+		Collections.sort(events);
+		
+		model.put("events", events);
+		return "timelineview";
 	}
 
 }

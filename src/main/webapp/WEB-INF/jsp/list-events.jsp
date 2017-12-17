@@ -10,8 +10,10 @@
 					<th>Date</th>
 					<th>Description</th>
 					<th>Image Link</th>
+					<!--  
 					<th></th>
 					<th></th>
+					-->
 				</tr>
 			</thead>
 			<tbody>
@@ -20,9 +22,11 @@
 						<td>${event.title}</td>
 						<td><fmt:formatDate value="${event.date}" pattern="dd/MM/yyyy"/></td>
 						<td>${event.description}</td>
-						<td>${event.imageLink}</td>
+						<td><a href="${event.imageLink}">Image Link</a></td>
+						<!--
 						<td><a type="button" class="btn btn-success" href="/update-todo?id=${event.id}">Update</a></td>
 						<td><a type="button" class="btn btn-warning" href="/delete-todo?id=${event.id}">Delete</a></td>
+					   -->
 					</tr>
 				</c:forEach>
 			</tbody>

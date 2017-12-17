@@ -5,7 +5,8 @@ import java.util.Date;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Event {
+public class Event implements Comparable<Event> {
+	Integer id;
 	String title;
 	Date date;
 	String description;
@@ -42,4 +43,31 @@ public class Event {
 	public void setImageLink(String imageLink) {
 		this.imageLink = imageLink;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	@Override
+	public int compareTo(Event o) {
+		if(this.getDate().equals(o.getDate())) {
+			return 0;
+		}
+		
+		if(this.getDate().after(o.getDate())) {
+			return -1;
+		}
+		
+		if(this.getDate().before(o.getDate())) {
+			return 1;
+		}
+		
+		return 0;
+	}
+	
+	
 }
