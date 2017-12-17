@@ -1,4 +1,4 @@
-package com.assign;
+package com.assign.dao;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -10,6 +10,9 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import org.springframework.stereotype.Repository;
+
+import com.assign.model.Event;
+import com.assign.model.Timeline;
 
 @Repository
 public class TimelineRepository {

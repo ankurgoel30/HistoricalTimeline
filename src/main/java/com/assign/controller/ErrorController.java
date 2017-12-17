@@ -1,4 +1,4 @@
-package com.assign;
+package com.assign.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -1,7 +1,11 @@
-package com.assign;
+package com.assign.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.assign.dao.TimelineRepository;
+import com.assign.model.Event;
+import com.assign.model.Timeline;
 
 @Service
 public class TimelineService {

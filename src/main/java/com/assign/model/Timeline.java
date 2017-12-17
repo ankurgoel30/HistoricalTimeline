@@ -1,4 +1,4 @@
-package com.assign;
+package com.assign.model;
 
 import java.util.List;
 
