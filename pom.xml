@@ -5,7 +5,7 @@
 
 	<groupId>com.assign</groupId>
 	<artifactId>HistoricalTimeline</artifactId>
-	<version>app-0.0.1-SNAPSHOT</version>
+	<version>app-0.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>HistoricalTimeline</name>
